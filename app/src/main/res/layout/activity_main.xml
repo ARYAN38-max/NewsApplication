@@ -37,5 +37,13 @@
         android:layout_marginTop="10sp"
         android:id="@+id/regisetBtn"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already Have An Account"
+        android:layout_marginTop="10sp"
+        android:layout_gravity="center"
+        android:id="@+id/loginBTNWindow"/>
+
 
 </LinearLayout>
