@@ -11,13 +11,19 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity
 {
     private EditText userName, userEmail, userPassword, userConformPassword;
-    private String name, email, password, conformpassword;
+
     private Button registerBTN, loginBTN;
     private LinearLayout parent;
+
+    //FireBase Database
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -34,20 +40,32 @@ public class MainActivity extends AppCompatActivity
         registerBTN = findViewById(R.id.regisetBtn);
         loginBTN = findViewById(R.id.loginBTNWindow);
 
-        name = userName.getText().toString();
-        email = userEmail.getText().toString();
-        password = userPassword.getText().toString();
-        conformpassword = userConformPassword.getText().toString();
+
 
         registerBTN.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-
-                if(name.equals("") || email.equals("") || password.equals("") || conformpassword.equals(""))
+                String name = userName.getText().toString();
+                String email = userEmail.getText().toString();
+                String password = userPassword.getText().toString();
+                String  conformPassword = userConformPassword.getText().toString();
+                if(name.equals("") || email.equals("") || password.equals("") || conformPassword.equals(""))
                 {
-                    showIncompleteSnackBar();
+                   showIncompleteSnackBar();
+                }
+                else
+                {
+                    //Move To next Application
+
+                    //Storing userCredentials in database
+                    firebaseDatabase = FirebaseDatabase.getInstance();
+                    databaseReference = firebaseDatabase.getReference("Users");
+                    userHelperClass userHelperClass = new userHelperClass(name, email, password, conformPassword);
+                    //setting child class and main display of child class will be userName
+                    databaseReference.child(name).setValue(userHelperClass);
+
                 }
             }
         });
