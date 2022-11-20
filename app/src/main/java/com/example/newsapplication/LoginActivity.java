@@ -13,7 +13,7 @@ public class LoginActivity extends AppCompatActivity {
     private LinearLayout parent;
     private EditText userEmail, userPassword;
     private Button loginBTN;
-    private String email, password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,19 +23,22 @@ public class LoginActivity extends AppCompatActivity {
         userPassword = findViewById(R.id.userPassword);
         loginBTN = findViewById(R.id.loginBTN);
 
-        email = userEmail.getText().toString();
-        password = userPassword.getText().toString();
+
 
         loginBTN.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
+                String email = userEmail.getText().toString();
+                String password = userPassword.getText().toString();
                 if(email.equals("") || password.equals(""))
                 {
                     showIncompleteSnackBar();
                 }
                 else
                 {
+
                     //Move To Application  Window
                 }
             }
