@@ -1,6 +1,8 @@
 package com.example.newsapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
         loginBTN.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -39,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
                 else
                 {
 
-                    //Move To Application  Window
+                    Intent MainApplication = new Intent(LoginActivity.this, ApplicationWindow.class);
+                    startActivity(MainApplication);
                 }
             }
         });
