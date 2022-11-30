@@ -155,18 +155,25 @@
     </LinearLayout>
     </HorizontalScrollView>
 
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="30dp"
         app:cardCornerRadius="10dp"
+        android:layout_gravity="center"
         app:cardElevation="20dp">
+
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
         android:layout_height="match_parent"
         android:id="@+id/homePageNewsContainer"
         />
+
     </androidx.cardview.widget.CardView>
+
 
 
 </LinearLayout>
