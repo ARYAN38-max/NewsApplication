@@ -24,11 +24,12 @@ public class ApplicationWindow extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application_window);
 
-
         replaceFragment(new newsDisplayer());
 
 
-        if (Build.VERSION.SDK_INT >= 21) {
+
+        if (Build.VERSION.SDK_INT >= 21)
+        {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -46,10 +47,35 @@ public class ApplicationWindow extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-
+                replaceFragment(new newsDisplayer());
             }
         });
 
+        stockWindow.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                stockFragment(new StockNews());
+            }
+        });
+
+        automobileWindow.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                AutoFragment(new AutoNews());
+            }
+        });
+        businessWindow.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                 businessFragment(new BusinessFragment());
+            }
+        });
 
         /** private void replaceFragment(Fragment newsDisplaye)
          {
@@ -65,6 +91,30 @@ public class ApplicationWindow extends AppCompatActivity
 
 
 }
+
+    private void stockFragment(StockNews StockNews)
+    {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.homePageNewsContainer, StockNews);
+        transaction.commit();
+    }
+
+    private void businessFragment(BusinessFragment BusinessFragment)
+    {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.homePageNewsContainer, BusinessFragment);
+        transaction.commit();
+    }
+
+    private void AutoFragment(Fragment AutoNews)
+    {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.homePageNewsContainer, AutoNews);
+        transaction.commit();
+    }
 
     private void replaceFragment(newsDisplayer newsDisplayer) {
         FragmentManager fragmentManager = getSupportFragmentManager();

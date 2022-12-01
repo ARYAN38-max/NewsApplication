@@ -40,7 +40,7 @@ public class AutoNews extends Fragment
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {
                 String content = snapshot.getValue(String.class);
-                newsHeading.setText(content);
+                newsContent.setText(content);
             }
 
             @Override
@@ -49,7 +49,7 @@ public class AutoNews extends Fragment
 
             }
         });
-
+        newsHeading.setText("");
         return view;
     }
 }
