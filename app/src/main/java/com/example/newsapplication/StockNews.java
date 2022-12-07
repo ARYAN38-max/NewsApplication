@@ -51,6 +51,7 @@ public class StockNews extends Fragment
 
             }
         });
+        title.setText("Centre pushes Railways to reform, merge RVNL & Ircon, Rail Tel & IRCTC");
 
          return view;
     }

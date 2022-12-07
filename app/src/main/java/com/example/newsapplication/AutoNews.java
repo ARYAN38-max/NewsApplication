@@ -49,7 +49,7 @@ public class AutoNews extends Fragment
 
             }
         });
-        newsHeading.setText("");
+        newsHeading.setText("Tesla launches electric cars in THIS Asian country while India debut remains unclear");
         return view;
     }
 }
